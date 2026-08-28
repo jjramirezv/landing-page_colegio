@@ -1,11 +1,3 @@
--- Colegio Max Planck — esquema del panel de administración
--- Ejecutar completo en el SQL Editor de Supabase (Project > SQL Editor > New query).
--- Seguro de correr más de una vez: usa "if not exists" y upserts en el seed.
-
--- ─────────────────────────────────────────────────────────────
--- Tablas
--- ─────────────────────────────────────────────────────────────
-
 create table if not exists niveles (
   id text primary key,
   name text not null,
@@ -20,7 +12,7 @@ create table if not exists niveles (
   support text not null default '',
   projects jsonb not null default '[]',
   profile text not null default '',
-  grados jsonb not null default '[]', -- [{ "nombre": "1.º grado", "enfoque": "..." }]
+  grados jsonb not null default '[]',
   orden int not null default 0,
   updated_at timestamptz not null default now()
 );
@@ -46,20 +38,13 @@ create table if not exists noticias (
 
 create table if not exists horarios (
   id uuid primary key default gen_random_uuid(),
-  nivel_id text references niveles(id) on delete cascade, -- null = aplica a todo el colegio
+  nivel_id text references niveles(id) on delete cascade,
   dia text not null,
   hora text not null,
   actividad text not null default 'Clases',
   orden int not null default 0,
   updated_at timestamptz not null default now()
 );
-
--- ─────────────────────────────────────────────────────────────
--- Seguridad: lectura pública, escritura solo para correos en la
--- lista blanca "admins". El login es "Continuar con Google", así
--- que CUALQUIER cuenta de Google puede autenticarse — la lista
--- "admins" es la que realmente decide quién puede editar.
--- ─────────────────────────────────────────────────────────────
 
 create table if not exists admins (
   email text primary key,
@@ -72,24 +57,12 @@ drop policy if exists "self_select_admins" on admins;
 create policy "self_select_admins" on admins for select
   using (email = (auth.jwt() ->> 'email'));
 
--- Agrega aquí el correo de Google de cada persona autorizada a
--- administrar el sitio. Descomenta y edita la línea siguiente:
--- insert into admins (email) values ('tu-correo@gmail.com') on conflict do nothing;
-
 create or replace function is_admin() returns boolean
 language sql stable security definer set search_path = public as $$
   select exists (
     select 1 from admins where email = (auth.jwt() ->> 'email')
   );
 $$;
-
--- ─────────────────────────────────────────────────────────────
--- Suscriptores: cada vez que alguien inicia sesión con Google pero
--- NO está en "admins", la app guarda su correo aquí automáticamente
--- (para futuros envíos de correo del colegio). Cada persona solo
--- puede insertar su propio correo; solo los admins pueden ver/borrar
--- la lista completa (se gestiona desde /admin/suscriptores).
--- ─────────────────────────────────────────────────────────────
 
 create table if not exists suscriptores (
   email text primary key,
@@ -134,11 +107,6 @@ begin
     execute format('create policy "admin_delete_%1$s" on %1$s for delete to authenticated using (is_admin())', t);
   end loop;
 end $$;
-
--- ─────────────────────────────────────────────────────────────
--- Datos semilla — el mismo contenido que hoy vive hardcodeado
--- en src/data/education.js y en la sección de noticias de Home.
--- ─────────────────────────────────────────────────────────────
 
 insert into niveles (id, name, range, short, image, tagline, intro, focus, benefits, experiences, support, projects, profile, grados, orden)
 values
