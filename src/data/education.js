@@ -1,0 +1,78 @@
+export const levelsData = {
+  inicial: {
+    id:"inicial", name:"Inicial", range:"3, 4 y 5 años", short:"3 a 5 años", image:"science-project.png",
+    tagline:"Explorar, sentir y crecer con alegría.",
+    intro:"Acompañamos los primeros descubrimientos con afecto, juego y experiencias que fortalecen la autonomía, el lenguaje y la seguridad emocional.",
+    focus:"Aprendizaje activo y significativo a través del juego, la curiosidad, el movimiento y los vínculos seguros.",
+    benefits:["Desarrollo integral y socioemocional","Curiosidad y pensamiento temprano","Autonomía y hábitos positivos","Ambientes seguros y afectivos"],
+    experiences:["Rincones de exploración y juego simbólico","Psicomotricidad, música y expresión artística","Primeros proyectos de ciencia y naturaleza"],
+    support:"Comunicación cercana, entrevistas de seguimiento y orientaciones para acompañar cada etapa del desarrollo.",
+    projects:["Huerto escolar","Pequeños científicos","Mi mundo de colores"],
+    profile:"Curioso, seguro, empático y feliz de aprender descubriendo el mundo.",
+    grades:["3 años","4 años","5 años"],
+  },
+  primaria: {
+    id:"primaria", name:"Primaria", range:"1.º a 6.º grado", short:"1.° a 6.° grado", image:"hero-classroom.png",
+    tagline:"Indagar, crear y comprender el mundo.",
+    intro:"Consolidamos bases académicas sólidas mientras cada estudiante aprende a preguntar, argumentar, colaborar y comunicar sus ideas.",
+    focus:"Aprendizaje basado en proyectos, pensamiento crítico y desarrollo progresivo de competencias.",
+    benefits:["Comprensión y razonamiento","Creatividad e innovación","Trabajo colaborativo","Inglés comunicativo"],
+    experiences:["Proyectos interdisciplinarios y laboratorios","Lectura, escritura y matemática aplicada","Arte, deporte y ciudadanía activa"],
+    support:"Tutoría, retroalimentación permanente y comunicación con las familias para acompañar hábitos y progreso.",
+    projects:["Feria de ciencias","Emprende Max","Cine y literatura"],
+    profile:"Inquisitivo, perseverante, colaborador y capaz de transformar preguntas en soluciones.",
+    grades:["1.º grado","2.º grado","3.º grado","4.º grado","5.º grado","6.º grado"],
+  },
+  secundaria: {
+    id:"secundaria", name:"Secundaria", range:"1.º a 5.º año", short:"1.° a 5.° año", image:"science-project.png",
+    tagline:"Liderar, decidir y transformar el futuro.",
+    intro:"Profundizamos el pensamiento crítico, la investigación y la autonomía para construir un proyecto de vida con propósito.",
+    focus:"Aprendizaje profundo mediante metodologías activas, proyectos, debate, investigación y orientación vocacional.",
+    benefits:["Visión global y pensamiento ético","Liderazgo y toma de decisiones","Investigación y tecnología","Preparación para estudios superiores"],
+    experiences:["Laboratorios, programación y debate","Proyectos de emprendimiento e impacto social","Orientación vocacional y participación estudiantil"],
+    support:"Tutoría individual, orientación vocacional y acompañamiento socioemocional en coordinación con la familia.",
+    projects:["Modelo de Naciones Unidas","Innovación tecnológica","Proyecto de impacto social"],
+    profile:"Autónomo, responsable, solidario y preparado para liderar con propósito.",
+    grades:["1.º año","2.º año","3.º año","4.º año","5.º año"],
+  },
+};
+
+export const courseCatalog = {
+  inicial:[
+    ["Personal Social","Construimos identidad, autonomía, convivencia y seguridad emocional."],
+    ["Psicomotricidad","Desarrollamos coordinación, expresión corporal y confianza mediante el movimiento."],
+    ["Comunicación","Fortalecemos lenguaje oral, escucha, acercamiento a la lectura y expresión creativa."],
+    ["Matemática","Descubrimos cantidades, patrones, formas y relaciones espaciales jugando."],
+    ["Ciencia y Tecnología","Exploramos la naturaleza y formulamos explicaciones desde la curiosidad."],
+    ["Arte y Creatividad","Expresamos ideas y emociones con música, movimiento y lenguajes visuales."],
+  ],
+  primaria:[
+    ["Comunicación","Comprendemos y producimos textos orales y escritos en situaciones diversas."],
+    ["Matemática","Desarrollamos razonamiento lógico y resolvemos problemas vinculados con la realidad."],
+    ["Ciencia y Tecnología","Indagamos fenómenos y diseñamos soluciones mediante el pensamiento científico."],
+    ["Personal Social","Fortalecemos identidad, ciudadanía, historia, geografía y cuidado del ambiente."],
+    ["Inglés","Desarrollamos comunicación progresiva en inglés para relacionarnos con el mundo."],
+    ["Arte y Cultura","Creamos y apreciamos manifestaciones artísticas y culturales."],
+    ["Educación Física","Fortalecemos motricidad, vida saludable y colaboración mediante el deporte."],
+    ["Tutoría","Acompañamos bienestar, convivencia, hábitos de estudio y toma de decisiones."],
+    ["Formación en Valores","Reflexionamos sobre ética, servicio, respeto y sentido de comunidad."],
+  ],
+  secundaria:[
+    ["Comunicación","Argumentamos, interpretamos y producimos discursos y textos complejos."],
+    ["Matemática","Modelamos situaciones y resolvemos problemas de cantidad, cambio, forma y datos."],
+    ["Ciencia y Tecnología","Investigamos fenómenos y construimos soluciones tecnológicas."],
+    ["Ciencias Sociales","Interpretamos procesos históricos y gestionamos responsablemente el territorio."],
+    ["Ciudadanía y Cívica","Construimos identidad, convivencia democrática y pensamiento ético."],
+    ["Inglés","Comunicamos ideas y comprendemos contenidos en una lengua extranjera."],
+    ["Educación para el Trabajo","Diseñamos proyectos de emprendimiento económico y social."],
+    ["Arte y Cultura","Creamos proyectos y analizamos expresiones culturales con mirada crítica."],
+    ["Educación Física","Consolidamos hábitos saludables, autonomía corporal y trabajo en equipo."],
+    ["Tutoría y Orientación","Acompañamos bienestar, proyecto de vida y elección vocacional."],
+  ],
+};
+
+export const gradeFocus = {
+  inicial:["Adaptación, juego y comunicación","Autonomía, imaginación y convivencia","Preparación integral para Primaria"],
+  primaria:["Descubrir cómo aprendemos","Consolidar lectura y pensamiento numérico","Investigar y comunicar ideas","Relacionar conocimientos y resolver retos","Argumentar y trabajar con autonomía","Integrar saberes y preparar la transición"],
+  secundaria:["Adaptación y pensamiento analítico","Investigación y colaboración","Autonomía y proyectos","Profundización y orientación","Liderazgo y preparación para el futuro"],
+};

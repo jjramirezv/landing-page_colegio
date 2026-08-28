@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply m-0 bg-white font-sans text-slate-900 antialiased;
+  }
+  button,
+  a {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2;
+  }
+}
+
+@layer components {
+  .action-primary { @apply inline-flex items-center justify-center gap-2 bg-emerald-900 px-7 py-4 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg; }
+  .action-secondary { @apply inline-flex items-center justify-center gap-2 border-b border-emerald-700 px-1 py-3 text-sm font-bold text-emerald-800 transition duration-300 hover:gap-3 hover:text-emerald-600; }
+  .action-light { @apply inline-flex items-center justify-center gap-2 bg-white px-7 py-4 text-sm font-bold text-emerald-950 transition duration-300 hover:-translate-y-0.5 hover:bg-amber-300; }
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-[.22em] text-emerald-700;
+  }
+  .section-title {
+    @apply mt-3 font-display text-4xl leading-[1.08] tracking-[-.035em] text-emerald-950 md:text-5xl;
+  }
+  .body-copy {
+    @apply mt-6 max-w-xl text-base leading-8 text-slate-600;
+  }
+}
+
+@keyframes reveal-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal-up { animation: reveal-up .8s cubic-bezier(.2,.8,.2,1) both; }
+.hero-photo { animation: reveal-up 1s .12s cubic-bezier(.2,.8,.2,1) both; }
+.level-preview { box-shadow: 0 18px 55px rgba(2,44,34,.08); }
+.level-switch { animation: reveal-up .45s cubic-bezier(.2,.8,.2,1) both; }
+.model-reveal { animation: reveal-up .4s cubic-bezier(.2,.8,.2,1) both; }
+.science-burst { background: radial-gradient(circle at 8% 30%, rgba(16,185,129,.12), transparent 24%), radial-gradient(circle at 92% 72%, rgba(250,204,21,.14), transparent 25%), #fff; }
+.level-tab::after { content:""; position:absolute; inset:-60% auto auto -20%; width:55%; aspect-ratio:1; border:1px solid rgba(255,255,255,.28); border-radius:999px; transition:transform .5s ease; }
+.level-tab:hover::after { transform:scale(1.5); }
+.level-progress { width:88%; animation: progress-in .65s ease both; }
+@keyframes progress-in { from { width:0; } }
+
+@layer utilities {
+  .font-display {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+.notebook-grid {
+  background-image:
+    linear-gradient(rgba(5, 80, 55, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 80, 55, 0.045) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.notebook-grid-dark {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
